@@ -796,7 +796,7 @@ class OrderController extends Controller
                 ]
             ],
             "merchant" => [
-                "id" => "59020844"
+                "id" => config('payment.merchant_id')
             ],
             "source" => [
                 "id" => "src_card"
@@ -806,9 +806,9 @@ class OrderController extends Controller
             ],
         ];
 
-        $SERVER_KEY = 'sk_test_EQz2iyW8huUYHAapf4tGv0Xj';
+        $SERVER_KEY = config('payment.server_key');
         // $SERVER_KEY = 'sk_live_EuyaV0683UizjwOKpxHGbNh1';
-        $BASE_URL = 'https://api.tap.company/v2/charges';
+        $BASE_URL = config('payment.base_url');
 
         // $data['profile_id'] = $PROFILE_ID;
         $curl = curl_init();
@@ -840,9 +840,9 @@ class OrderController extends Controller
         // $order = Order::where('user_id', $customer->id)->orderBy('id', 'desc')->first();
         $order = Order::where('code', base64_decode($request->query('order_number')))->orderBy('id', 'desc')->first();
         // echo "<pre>";print_r($order);
-        $BASE_URL = 'https://api.tap.company/v2/charges/';
-        $SERVER_KEY = 'sk_test_EQz2iyW8huUYHAapf4tGv0Xj';
+        $SERVER_KEY = config('payment.server_key');
         // $SERVER_KEY = 'sk_live_EuyaV0683UizjwOKpxHGbNh1';
+        $BASE_URL = config('payment.base_url');
 
         // Initialize cURL session
         $ch = curl_init();
