@@ -48,11 +48,7 @@
             :data-decimal-separator="EcommerceHelper::getDecimalSeparatorForInputMask()"
             :value="old('sale_price', $product ? $product->sale_price : $originalProduct->sale_price ?? null)"
             :group-flat="true"
-            :data-sale-percent-text="trans('plugins/ecommerce::products.form.price_sale_percent_helper')"
         >
-            <x-slot:helper-text>
-                {!! trans('plugins/ecommerce::products.form.price_sale_percent_helper', ['percent' => '<strong>' . ($product ? $product->sale_percent : 0) . '%</strong>']) !!}
-            </x-slot:helper-text>
 
             <x-slot:prepend>
                 <span class="input-group-text">{{ get_application_currency()->symbol }}</span>
