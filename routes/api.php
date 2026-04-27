@@ -37,6 +37,7 @@ Route::middleware('customLogs')->group(function () {
 
     // Product Routes
     Route::withoutMiddleware('customLogs')->post('/products', [ProductController::class, 'getProducts']);
+    Route::post('/products/live-status', [ProductController::class, 'getProductsLiveStatus']);
 
     // All Product Routes
     Route::withoutMiddleware('customLogs')->post('/allProducts', [ProductController::class, 'getAllProducts']);
@@ -58,4 +59,9 @@ Route::middleware('customLogs')->group(function () {
     // Contact Route
     Route::post('/contact', [ContactController::class, 'contact']);
     Route::post('/campaign', [ContactController::class, 'campaign']);
+
+     Route::get('/freeGiftProducts', [ProductController::class, 'freeGiftProducts']);
+    Route::get('/bogoProducts', [ProductController::class, 'bogoProducts']);
+
+
 });
