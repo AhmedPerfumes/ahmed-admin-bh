@@ -19,15 +19,10 @@ use App\Http\Controllers\Api\ContactController;
 // Auth Routes
 Route::middleware('customLogs')->group(function () {
     Route::post('/signup', [AuthController::class, 'signup']);
-
     Route::post('/verifyOTP', [AuthController::class, 'verifyOTP']);
-
     Route::post('/sendOTP', [AuthController::class, 'sendOTP']);
-
     Route::post('/signin', [AuthController::class, 'signin']);
-
     Route::get('/signout', [AuthController::class, 'signout']);
-
     Route::get('/customer', [AuthController::class, 'getCustomer']);
 
     // Product Category Routes
@@ -60,7 +55,16 @@ Route::middleware('customLogs')->group(function () {
     Route::post('/contact', [ContactController::class, 'contact']);
     Route::post('/campaign', [ContactController::class, 'campaign']);
 
-     Route::get('/freeGiftProducts', [ProductController::class, 'freeGiftProducts']);
+    Route::get('/customerOrders', [OrderController::class, 'customerOrders']);
+    Route::post('/customerDetails', [OrderController::class, 'customerDetails']);
+    Route::post('/customerUpdate', [OrderController::class, 'customerUpdate']);
+    Route::post('/customerAddressDetails', [OrderController::class, 'customerAddressDetails']);
+    Route::post('/customerAddressUpdate', [OrderController::class, 'customerAddressUpdate']);
+    Route::post('/customerOrderDetails', [OrderController::class, 'customerOrderDetails']);
+    Route::post('/customerCouponDetails', [OrderController::class, 'customerCouponDetails']);
+    Route::post('/customerPasswordCheck', [OrderController::class, 'customerPasswordCheck']);
+
+    Route::get('/freeGiftProducts', [ProductController::class, 'freeGiftProducts']);
     Route::get('/bogoProducts', [ProductController::class, 'bogoProducts']);
 
 
